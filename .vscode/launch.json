@@ -1,0 +1,39 @@
+{
+  "configurations": [
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "worm-test-lambda:HelloWorldFunction (dotnetcore3.1)",
+      "invokeTarget": {
+        "target": "template",
+        "templatePath": "${workspaceFolder}/worm-test-lambda/template.yaml",
+        "logicalId": "HelloWorldFunction"
+      },
+      "lambda": {
+        "payload": {},
+        "environmentVariables": {},
+        "runtime": "dotnetcore3.1"
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "API worm-test-lambda:HelloWorldFunction (dotnetcore3.1)",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "${workspaceFolder}/worm-test-lambda/template.yaml",
+        "logicalId": "HelloWorldFunction"
+      },
+      "api": {
+        "path": "/hello",
+        "httpMethod": "get",
+        "payload": {
+          "json": {}
+        }
+      },
+      "lambda": {
+        "runtime": "dotnetcore3.1"
+      }
+    }
+  ]
+}
